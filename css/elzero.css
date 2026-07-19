@@ -3,6 +3,7 @@
   --main-color: #2196f3;
   --main-color-alt: #1787e0;
   --main-transition: 0.3s;
+  --main-padding: 100px
 }
 html {
   scroll-behavior: smooth;
@@ -48,7 +49,7 @@ a {
   }
 }
 .main-title {
-  margin: 50px auto;
+  margin: 0 auto 80px;
   border: 2px solid black;
   padding: 10px 20px;
   font-size: 30px;
@@ -315,6 +316,60 @@ header .mega-menu {
   animation: bouncing 1.5s infinite;
 }
 /* End Landing */
+/* Start Articles */
+.articles {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+}
+.articles .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+.articles .box {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%); 
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform var(--main-transition), box-shadow var(--main-transition);
+}
+.articles .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%); 
+}
+.articles .box img {
+  max-width: 100%;
+}
+.articles .box .content {
+  padding: 20px;
+  border-bottom: 1px solid #E6E6E7;
+}
+.articles .box .content h3 {
+  margin: 0
+}
+.articles .box .content p {
+  margin: 10px 0 0;
+  color: #777;
+  line-height: 1.5;
+}
+.articles .box .more {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.articles .box .more a {
+  font-weight: bold;
+  color: var(--main-color);
+}
+.articles .box .more i {
+  color: var(--main-color);
+}
+.articles .box:hover i {
+  animation: moving-arrow .6s linear infinite;
+}
+/* End Articles */
 /* Start Animation */
 @keyframes up-down {
   0%, 100% {
@@ -363,6 +418,11 @@ header .mega-menu {
     border-radius: 0;
     width: 50%;
     height: 100%;
+  }
+}
+@keyframes moving-arrow {
+  100% {
+    transform: translateX(10px);
   }
 }
 /* End Animation */
