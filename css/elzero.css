@@ -59,6 +59,7 @@ header .container {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 header .container a.logo {
   font-weight: bold;
@@ -72,11 +73,10 @@ header .container a.logo {
 }
 @media (max-width: 767px) {
   header .container a.logo {
-  width: 100%;
-  height: 40px;
+    width: 100%;
+    height: 40px;
   }
 }
-
 header .container .main-nav {
   display: flex;
 }
@@ -85,6 +85,13 @@ header .container .main-nav {
     margin: auto;
   }
 }
+
+header .container .main-nav > li:last-child:hover .mega-menu {
+  top: calc(100% + 1px);
+  opacity: 1;
+  z-index: 100;
+}
+
 header .container .main-nav > li > a {
   padding: 0 30px;
   font-size: 18px;
@@ -122,6 +129,69 @@ header .container .main-nav > li > a:hover {
   background-color: #FAFAFA;
   color: var(--main-color);
 }
+header .mega-menu {
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 50px);
+  left: 0;
+  display: flex;
+  gap: 40px;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 3px solid var(--main-color);
+  z-index: -1;
+  opacity: 0;
+  transition: top var(--main-transition), opacity var(--main-transition);
+}
+@media (max-width: 991px) {
+  .mega-menu .image {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .mega-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+  .mega-menu .links .last {
+    border-bottom: 1px solid #e9e6e6; 
+  }
+}
+.mega-menu .image img {
+  max-width: 100%;
+}
+.mega-menu ul.links {
+  min-width: 250px;
+  flex: 1;
+}
+.mega-menu ul.links li {
+  position: relative;
+} 
+.mega-menu ul.links li::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background-color: #FAFAFA;
+  width: 0;
+  z-index: -1;
+  transition: var(--main-transition);
+}
+.mega-menu ul.links li:hover::before {
+  width: 100%
+}
+.mega-menu .links li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+.mega-menu ul.links li a {
+  display: block;
+  font-size: 18px;
+  padding: 15px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.mega-menu ul.links li i {
+  margin-right: 10px;
+}
 /* End Header */
 /* Start Landing */
 .landing {
@@ -155,7 +225,7 @@ header .container .main-nav > li > a:hover {
 }
 .landing .text h1 {
   margin: 0;
-  font-size: 35px;
+  font-size: 40px;
   letter-spacing: -2px;
 }
 @media (max-width: 767px) {
@@ -165,7 +235,7 @@ header .container .main-nav > li > a:hover {
 }
 .landing .text p {
   color: #666;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.7;
   margin: 5px 0 0;
   max-width: 500px;
