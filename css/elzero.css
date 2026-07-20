@@ -603,6 +603,138 @@ header .mega-menu {
   margin: 10px 0 0;
 }
 /* End Testimonials */
+/* Start Team */
+.team {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+}
+.team .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.team .box {
+  position: relative;
+}
+.team .box::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: calc(100% - 60px);
+  height: 100%;
+  background-color: #f3f3f3;
+  z-index: -2;
+  border-radius: 10px;
+}
+@media (max-width: 685px) {
+  .team .box {
+    padding: 30px;
+  }
+  .team .box::before {
+    width: 100%;
+  }
+}
+.team .box::after {
+  content: '';
+  position: absolute;
+  background-color: #e4e4e4;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  z-index: -1;
+  transition: var(--main-transition);
+}
+.team .box:hover::after {
+  width: calc(100% - 60px);
+}
+@media (max-width: 685px) {
+  .team .box:hover::after  {
+    width: 100%;
+  }
+}
+.team .box .data {
+  display: flex;
+  align-items: center;
+  padding-top: 60px
+}
+@media (max-width: 685px) {
+  .team .box .data {
+    flex-direction: column;
+    padding-top: 0;
+  }
+}
+.team .box .data img {
+  max-width: calc(100% - 60px);
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+@media (max-width: 685px) {
+  .team .box .data img {
+    max-width: 100%
+  }
+}
+.team .box:hover .data img {
+  filter: grayscale(100%);
+}
+.team .box .data .social {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px
+}
+@media (max-width: 685px) {
+  .team .box .data .social {
+    flex-direction: row;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}
+.team .box .data .social a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 685px) {
+  .team .box .data .social {
+    gap: 0;
+  } 
+  .team .box .data .social a {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.team .box .data .social a:hover i {
+  color: var(--main-color)
+}
+.team .box .social i {
+  color: rgb(119, 119, 119);
+}
+.team .box .info {
+  padding: 20px 0 10px 80px;
+}
+@media (max-width: 685px) {
+  .team .box .info {
+    padding: 20px 0 0;
+  }
+}
+.team .box .info h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--main-color);
+  transition: var(--main-transition);
+}
+.team .box:hover .info h3 {
+  color: #777;
+}
+.team .box .info p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+} 
+/* End Team */
 /* Start Animation */
 @keyframes up-down {
   0%, 100% {
