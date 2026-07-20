@@ -559,6 +559,50 @@ header .mega-menu {
   background-color: var(--features-passion);
 }
 /* End Features */
+/* Start Testimonials */
+.testimonials {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  background-color: var(--alt-background);
+}
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.testimonials .box {
+  background-color: white;
+  position: relative;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px;
+  border-radius: 10px;
+}
+.testimonials .box img {
+  position: absolute;
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid var(--alt-background);
+  right: -15px;
+  top: -10px;
+}
+.testimonials .box h3 {
+  margin: 0 0 10px;
+  color: var(--main-color)
+}
+.testimonials .box .description {
+  display: block;
+  margin: 0 0 10px;
+}
+.testimonials .box .filled {
+  color: rgb(255, 193, 7);
+}
+.testimonials .box p {
+  color: #777;
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+/* End Testimonials */
 /* Start Animation */
 @keyframes up-down {
   0%, 100% {
