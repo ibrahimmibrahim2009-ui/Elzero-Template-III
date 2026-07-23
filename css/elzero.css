@@ -837,33 +837,33 @@ header .mega-menu {
     display: none;
   }
 }
-.our-skills .stats {
+.our-skills .stat {
   flex: 1;
 }
-.our-skills .stats > .box {
+.our-skills .stat > .box {
   margin-bottom: 25px;
 }
-.our-skills .stats > .box > h3 {
+.our-skills .stat > .box > h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
   margin: 0 0 15px;
 }
-.our-skills .stats > .box > h3 > span {
+.our-skills .stat > .box > h3 > span {
   font-size: 12px;
   color: var(--main-color);
   padding: 3px 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.our-skills .stats > .box > div {
+.our-skills .stat > .box > div {
   height: 30px;
   background-color: #eee;
   position: relative;
   z-index: -1;
 }
-.our-skills .stats .box div span {
+.our-skills .stat .box div span {
   position: absolute;
   height: 100%;
   left: 0;
@@ -1290,6 +1290,143 @@ header .mega-menu {
   padding: 20px;
   text-transform: capitalize;
   margin-top: 10px;
+}
+/* End Vidoes */
+/* Start Stats */
+.stats {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  background-image: url(../Images/stats.jpg);
+  background-size: cover;
+  position: relative;
+  z-index: -2;
+}
+.stats::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(255 255 255 / 95%);
+  z-index: -1;
+}
+.stats > h2 {
+  width: fit-content;
+  margin: 0 auto 50px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.stats .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+.stats > h2, 
+.stats .container {
+  z-index: 100;
+}
+.stats .container .box {
+  background-color: white;
+  text-align: center;
+  padding: 30px 15px; 
+  position: relative;
+  opacity: 0.8;
+}
+.stats .container .box::before,
+.stats .container .box::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  z-index: 100;
+}
+.stats .container .box::before {
+  left: 0;
+  top: 0;
+}
+.stats .container .box::after {
+  right: 0;
+  bottom: 0;
+}
+.stats .container .box:hover::before,
+.stats .container .box:hover::after {
+  height: 100%;
+}
+.stats .box span {
+  display: block;
+}
+.stats .box .number {
+  margin: 10px 0;
+  font-size: 50px;
+  font-weight: bold;
+}
+.stats .box .text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--main-color);
+  font-style: italic;
+}
+/* End Stats */
+.discount {
+display: flex;
+}
+.discount .info {
+  flex-basis: 50%;
+  text-align: center;
+  padding: var(--main-padding) 
+}
+.discount .info h2 {
+  font-size: 40px;
+}
+.discount .info p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 30px auto;
+}
+.discount .info img {
+  max-width: 100%;
+  width: 300px
+}
+.discount .form {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 40px;
+} 
+.discount .form h2 {
+  font-size: 40px;
+}
+.discount .form form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 30px auto;
+}
+.discount form input,
+.discount form textarea {
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  outline: none;
+  border: none;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+.discount form textarea {
+  height: 200px;
+}
+.discount form input[type="submit"] {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--main-color);
+  cursor: pointer;
+  border: none;
+  transition: var(--main-transition);
 }
 /* Start Animation */
 @keyframes up-down {
