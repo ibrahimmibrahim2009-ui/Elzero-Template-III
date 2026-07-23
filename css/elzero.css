@@ -1087,7 +1087,77 @@ header .mega-menu {
   background-color: var(--alt-background);
 }
 .pricing .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.pricing .container .box {
+  background-color: white;
+  text-align: center;
+}
+.pricing .container .box.middle {
+  position: relative;
+}
+.pricing .container .box.middle::before {
+  content: 'Most Popular';
+  position: absolute;
+  display: block;
+  width: fit-content;
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px 35px 10px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  top: 0;
+  right: -10px;
+}
+.pricing .container .box div:first-of-type {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px 0;
+}
+.pricing .box img {
+  width: 80px;
+  margin-bottom: 30px;
+}
+.pricing .box .prices {
   
+}
+.pricing .box .prices span {
+  display: block;
+}
+.pricing .box .prices .amount {
+  font-size: 60px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin-bottom: 5px;
+}
+.pricing .box .prices .time {
+  color: #777;
+}
+.pricing .box ul {
+  text-align: left;
+  margin: 20px 0;
+}
+.pricing .box ul li {
+  padding: 20px;
+  position: relative;
+}
+.pricing .box ul li {
+  border-top: 1px solid #ccc;
+}
+.pricing .box a {
+  display: block;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 20px auto 40px;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  border-radius: 6px;
+  padding: 15px 20px;
 }
 /* End Pricing */
 /* Start Animation */
