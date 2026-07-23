@@ -1092,28 +1092,74 @@ header .mega-menu {
   gap: 30px;
 }
 .pricing .container .box {
+  position: relative;
   background-color: white;
   text-align: center;
+  box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%),
+  0 2px 4px 0 rgb(0 0 0 / 12%);
+  z-index: 1;
 }
-.pricing .container .box.middle {
-  position: relative;
-}
-.pricing .container .box.middle::before {
-  content: 'Most Popular';
+.pricing .container .box::before {
+  content: '';
   position: absolute;
-  display: block;
-  width: fit-content;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 50%;
+  background-color: #f6f6f6;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+.pricing .container .box::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0;
+  height: 50%;
+  background-color: #f6f6f6;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+.pricing .box:hover::before, 
+.pricing .box:hover::after {
+  width:100%;
+}
+.pricing .box.middle {
+  top: -20px;
+}
+@media (max-width: 1199px) {
+  .pricing .box.middle {
+    top: 0
+  }
+}
+@media (max-width: 767px) {
+  .pricing .container {
+    gap: 50px;
+  }
+} 
+.pricing .box.middle .label {
+  position: absolute;
+  top: 0;
+  right: 30px;
   background-color: var(--main-color);
   color: white;
-  padding: 10px 35px 10px 10px;
+  writing-mode: vertical-rl;
   font-size: 18px;
   font-weight: bold;
-  transform: rotate(90deg);
-  transform-origin: top left;
-  top: 0;
-  right: -10px;
+  padding: 10px 10px 35px;
+  width: 40px;
 }
-.pricing .container .box div:first-of-type {
+.pricing .container .box .label::before {
+  content: '';
+  position: absolute;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  bottom: 0;
+  right: 0;
+}
+.pricing .container .box .title {
   font-size: 25px;
   font-weight: bold;
   margin: 30px 0;
@@ -1121,9 +1167,6 @@ header .mega-menu {
 .pricing .box img {
   width: 80px;
   margin-bottom: 30px;
-}
-.pricing .box .prices {
-  
 }
 .pricing .box .prices span {
   display: block;
@@ -1144,9 +1187,14 @@ header .mega-menu {
 .pricing .box ul li {
   padding: 20px;
   position: relative;
-}
-.pricing .box ul li {
   border-top: 1px solid #ccc;
+}
+.pricing .box ul li::before {
+  content: '\f00c';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: var(--main-color);
+  margin-right: 10px;
 }
 .pricing .box a {
   display: block;
@@ -1158,6 +1206,11 @@ header .mega-menu {
   border: 2px solid var(--main-color);
   border-radius: 6px;
   padding: 15px 20px;
+  transition: var(--main-transition);
+}
+.pricing .box a:hover {
+  background-color: var(--main-color);
+  color: white;
 }
 /* End Pricing */
 /* Start Animation */
