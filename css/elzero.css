@@ -1370,13 +1370,30 @@ header .mega-menu {
   font-style: italic;
 }
 /* End Stats */
+/* Start Discount */
 .discount {
 display: flex;
 }
 .discount .info {
   flex-basis: 50%;
   text-align: center;
-  padding: var(--main-padding) 
+  padding: var(--main-padding) 20px;
+  background-image: url(../Images/discount-background1.jpg);
+  background-size: cover; 
+  color: white;
+  position: relative;
+  z-index: 1;
+  animation: change-bck 10s linear infinite;
+}
+.discount .info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(23 135 224 / 97%);
+  z-index: -1; 
 }
 .discount .info h2 {
   font-size: 40px;
@@ -1385,6 +1402,7 @@ display: flex;
   font-size: 20px;
   line-height: 1.7;
   margin: 30px auto;
+  max-width: 500px;
 }
 .discount .info img {
   max-width: 100%;
@@ -1392,32 +1410,61 @@ display: flex;
 }
 .discount .form {
   flex-basis: 50%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   padding-top: 100px;
   padding-bottom: 40px;
 } 
 .discount .form h2 {
   font-size: 40px;
+  text-align: center;
 }
 .discount .form form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   margin: 30px auto;
+}
+@media (max-width: 991px) {
+  .discount {
+    flex-direction: column;
+  }
+  .discount .form form {
+    width: 80%;
+  }
 }
 .discount form input,
 .discount form textarea {
   border-bottom: 1px solid #ccc;
   background-color: #f9f9f9;
   outline: none;
-  border: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
   padding: 15px;
   margin-bottom: 25px;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .discount form input,
+  .discount form textarea {
+    width: 300px;
+  }
+}
+.discount form input::placeholder,
+.discount form textarea::placeholder {
+  opacity: 1;
+  transition: var(--main-transition);
+}
+.discount form input:focus::placeholder {
+  opacity: 0;
+}
+.discount form textarea:focus::placeholder {
+  opacity: 0;
 }
 .discount form textarea {
   height: 200px;
+  resize: none;
 }
 .discount form input[type="submit"] {
   font-size: 20px;
@@ -1427,6 +1474,9 @@ display: flex;
   cursor: pointer;
   border: none;
   transition: var(--main-transition);
+}
+.discount form input[type="submit"]:hover {
+  background-color: var(--main-color-alt);
 }
 /* Start Animation */
 @keyframes up-down {
@@ -1491,6 +1541,14 @@ display: flex;
     opacity: 0;
     width: 200%;
     height: 200%
+  }
+}
+@keyframes change-bck {
+  0%, 100% {
+    background-image: url(../Images/discount-background1.jpg);
+  }
+  50% {
+    background-image: url(../Images/discount-background2.jpg);
   }
 }
 /* End Animation */
